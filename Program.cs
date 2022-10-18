@@ -199,9 +199,61 @@ namespace ConsoleStore
             Console.WriteLine("                    \tBack                        [7]                              ");
             Console.WriteLine("***********************************************************************************");
 
+            int UserInput;
+            UserInput = int.Parse(Console.ReadLine());
+            string input = "y";
+
+            switch (UserInput)
+            {
+                case 1:
+                    // Ask user to input the quantity they wish to purchase
+                    // Add item to cartList
+                    Console.Write("\tPlease select the quantity you wish to purchase: ");
+                    int quantity_c1 = int.Parse(Console.ReadLine());
+                    Console.WriteLine($"\tYou have selected: {quantity_c1} items of this product");
+                    Console.WriteLine("\tPress Enter to confirm");
+                    Console.ReadKey();
+                    break;
+                case 2:
+                    Console.WriteLine("Your item has been added to your cart.");// Add item to cart
+                    Console.ReadKey();
+                    break;
+                case 3:
+                    Console.WriteLine("Your item has been added to your cart.");
+                    Console.ReadKey();
+                    break;
+                case 4:
+                    Console.WriteLine("Your item has been added to your cart.");//Cart();
+                    Console.ReadKey();
+                    break;
+                case 5:
+                    Console.WriteLine("Your item has been added to your cart.");//UserAccount();
+                    Console.ReadKey();
+                    break;
+                case 6:
+                    //Cart();
+                    Console.ReadKey();
+                    break;
+                case 7:
+                    CategoriesMenu();
+                    Thread.Sleep(1000);
+                    break;
+
+                //Create a fail safe when user enters an invalid input too many times it logs out of user account
+                default:
+
+                    Console.WriteLine("Please enter a valid number");
+                    Thread.Sleep(500);
+                    CategoriesMenu();
+
+                    break;
+
+            }
+
             Console.ReadLine();
         }
     }
 }
-}
+
+
 
