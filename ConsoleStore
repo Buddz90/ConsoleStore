@@ -1,0 +1,106 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace ConsoleStore
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // variables
+            string name;
+
+
+
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("\tWelcome to EB Games ");
+            Console.WriteLine("*****************************************");
+            // ask user for name and save variable
+            Console.WriteLine("Please enter user name:");
+            name = Console.ReadLine();
+            SetAccount.UserAccount();
+        }
+
+        
+
+        public class SetAccount
+        {
+            public static int deposite;
+            public static int balance = 500;
+            public static void UserAccount()
+            {
+                // Display User Account menu option
+                Console.WriteLine("\tWelcome to EB Games Store" + "\tYour balance is " + balance); // <<<CHANGE STORENAME
+
+
+                Console.WriteLine("\n\tPlease select an option below: \n\n");
+
+
+                Console.WriteLine("[1] Top-up");
+                Console.WriteLine("[2] Browse Store");
+                Console.WriteLine("[3] View Cart");
+                Console.WriteLine("[4] Log-out");
+                string selectedOption = Console.ReadLine();
+                
+
+                switch (selectedOption)
+                {
+                    case "1":
+                        
+                        Console.WriteLine("\tYou are in the Top-up function Please enter the amount you want to deposit");
+
+                        deposite = int.Parse(Console.ReadLine());
+                        balance = balance + deposite;
+                        Console.WriteLine("\nYour balance is now: " + balance);
+                        Console.WriteLine("\tPress any key to go back");
+                        Console.ReadKey();
+                        Thread.Sleep(100);
+                        UserAccount();
+
+                        break;
+                    case "2":
+                        
+                        Console.WriteLine("You are in the Browse function");
+                        Console.WriteLine("\tPress any key to go back");
+                        Console.ReadKey();
+                        Thread.Sleep(100);
+                        UserAccount();
+                        break;
+                    case "3":
+                        ;
+                        Console.WriteLine("You are in the Cart function");
+                        Console.WriteLine("\tPress any key to go back");
+                        Console.ReadKey();
+                        Thread.Sleep(100);
+                        UserAccount();
+                        break;
+                    case "4":
+                        
+                        break;
+                    default:
+                        Console.WriteLine("No match found");
+                        break;
+                }
+
+                Console.ReadKey();
+                
+
+
+
+
+
+
+
+
+
+
+            }
+        }
+    }
+}
+
+
