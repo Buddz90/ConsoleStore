@@ -92,7 +92,7 @@ namespace ConsoleStore
                     UserAccount();
                     break;
                 case "4":
-
+                    StoreFront.SignIn();
                     break;
                 default:
                     Console.WriteLine("No match found");
