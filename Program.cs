@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace ConsoleStore
 {
@@ -12,10 +14,93 @@ namespace ConsoleStore
     {
         static void Main(string[] args)
         {
+
+
+            StoreFront.SignIn();
             Store.CategoriesMenu();
             Store.Category1();
             Store.Category2();
             Store.Category3();
+
+            
+        }
+    }
+    public class StoreFront
+    {
+
+        public static void SignIn()
+        {
+            string name;
+
+            Console.WriteLine("*****************************************");
+            Console.WriteLine("\tWelcome to EB Games ");
+            Console.WriteLine("*****************************************");
+            // ask user for name and save variable
+            Console.WriteLine("Please enter user name:");
+            name = Console.ReadLine();
+            SetAccount.UserAccount();
+        }
+    }
+    public class SetAccount
+    {
+        public static int deposite;
+        public static int balance = 500;
+        public static void UserAccount()
+        {
+            // Display User Account menu option
+            Console.WriteLine("\tWelcome to EB Games Store" + "\tYour balance is " + balance); // <<<CHANGE STORENAME
+
+
+            Console.WriteLine("\n\tPlease select an option below: \n\n");
+
+
+            Console.WriteLine("[1] Top-up");
+            Console.WriteLine("[2] Browse Store");
+            Console.WriteLine("[3] View Cart");
+            Console.WriteLine("[4] Log-out");
+            string selectedOption = Console.ReadLine();
+
+
+            switch (selectedOption)
+            {
+                case "1":
+
+                    Console.WriteLine("\tYou are in the Top-up function Please enter the amount you want to deposit");
+
+                    deposite = int.Parse(Console.ReadLine());
+                    balance = balance + deposite;
+                    Console.WriteLine("\nYour balance is now: " + balance);
+                    Console.WriteLine("\tPress any key to go back");
+                    Console.ReadKey();
+                    Thread.Sleep(100);
+                    UserAccount();
+
+                    break;
+                case "2":
+
+                    Store.CategoriesMenu();
+                    Console.ReadKey();
+                    Thread.Sleep(100);
+                    UserAccount();
+                    break;
+                case "3":
+                    ;
+                    Console.WriteLine("You are in the Cart function");
+                    Console.WriteLine("\tPress any key to go back");
+                    Console.ReadKey();
+                    Thread.Sleep(100);
+                    UserAccount();
+                    break;
+                case "4":
+
+                    break;
+                default:
+                    Console.WriteLine("No match found");
+                    break;
+            }
+
+            Console.ReadKey();
+
         }
     }
     class Store
@@ -122,7 +207,7 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 5:
-                    //UserAccount();
+                    SetAccount.UserAccount();
                     Console.ReadKey();
                     break;
 
@@ -189,7 +274,7 @@ namespace ConsoleStore
                     if (option_c1 == input)
                         goto L1;
                     else if (option_c1 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 2:
@@ -207,7 +292,7 @@ namespace ConsoleStore
                     if (option_c2 == input)
                         goto L1;
                     else if (option_c2 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 3:
@@ -225,7 +310,7 @@ namespace ConsoleStore
                     if (option_c3 == input)
                         goto L1;
                     else if (option_c3 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 4:
@@ -243,7 +328,7 @@ namespace ConsoleStore
                     if (option_c4 == input)
                         goto L1;
                     else if (option_c4 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 5:
@@ -261,7 +346,7 @@ namespace ConsoleStore
                     if (option_c5 == input)
                         goto L1;
                     else if (option_c5 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 6:
@@ -284,7 +369,7 @@ namespace ConsoleStore
         L1: Console.Clear();
             Console.WriteLine("===================================================================================");
             Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("                                    PC Games                              ");
+            Console.WriteLine("                                    PlayStation Games                              ");
             Console.WriteLine("***********************************************************************************");
             Console.WriteLine("===================================================================================");
             Console.WriteLine("                                                                                   ");
@@ -327,7 +412,7 @@ namespace ConsoleStore
                     if (option_c1 == input)
                         goto L1;
                     else if (option_c1 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 2:
@@ -345,7 +430,7 @@ namespace ConsoleStore
                     if (option_c2 == input)
                         goto L1;
                     else if (option_c2 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 3:
@@ -363,7 +448,7 @@ namespace ConsoleStore
                     if (option_c3 == input)
                         goto L1;
                     else if (option_c3 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 4:
@@ -381,7 +466,7 @@ namespace ConsoleStore
                     if (option_c4 == input)
                         goto L1;
                     else if (option_c4 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 5:
@@ -399,7 +484,7 @@ namespace ConsoleStore
                     if (option_c5 == input)
                         goto L1;
                     else if (option_c5 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 6:
@@ -422,7 +507,7 @@ namespace ConsoleStore
         L1: Console.Clear();
             Console.WriteLine("===================================================================================");
             Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("                                    PC Games                              ");
+            Console.WriteLine("                                    Xbox Games                              ");
             Console.WriteLine("***********************************************************************************");
             Console.WriteLine("===================================================================================");
             Console.WriteLine("                                                                                   ");
@@ -465,7 +550,7 @@ namespace ConsoleStore
                     if (option_c1 == input)
                         goto L1;
                     else if (option_c1 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 2:
@@ -483,7 +568,7 @@ namespace ConsoleStore
                     if (option_c2 == input)
                         goto L1;
                     else if (option_c2 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 3:
@@ -501,7 +586,7 @@ namespace ConsoleStore
                     if (option_c3 == input)
                         goto L1;
                     else if (option_c3 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 4:
@@ -519,7 +604,7 @@ namespace ConsoleStore
                     if (option_c4 == input)
                         goto L1;
                     else if (option_c4 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 5:
@@ -537,7 +622,7 @@ namespace ConsoleStore
                     if (option_c5 == input)
                         goto L1;
                     else if (option_c5 != input)
-                        // UserAccount();  
+                        SetAccount.UserAccount();  
                         Console.ReadKey();
                     break;
                 case 6:
