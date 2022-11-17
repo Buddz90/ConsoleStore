@@ -79,27 +79,24 @@ namespace ConsoleStore
                     Console.WriteLine("\nYour balance is now: " + balance);
                     Console.WriteLine("\tPress any key to go back");
                     Console.ReadKey();
+                    // Call UserAccount() 
                     UserAccount();
 
                     break;
                 case "2":
-                    // Category Menu
+                    // Call Category Menu
                     Store.CategoriesMenu();
-                    Console.ReadKey();
-                    Thread.Sleep(100);
-                    UserAccount();
                     break;
                 case "3":
                     // Cart History
                     Store.Cart();
-                    Thread.Sleep(100);
-                    UserAccount();
                     break;
                 case "4":
                     // Sign-in Section
                     StoreFront.SignIn();
                     break;
                 default:
+                    // Error message
                     Console.WriteLine("No match found");
                     break;
             }
@@ -190,11 +187,6 @@ namespace ConsoleStore
             Console.WriteLine("                           [4]    Cart                                             ");
             Console.WriteLine("                           [5]    Back                                             ");
             Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
 
             int UserInput;
             UserInput = int.Parse(Console.ReadLine());
@@ -235,7 +227,7 @@ namespace ConsoleStore
 
             Console.ReadLine();
         }
-        // Displays the total list of items purchased
+
 
         public static void Cart()
         {
@@ -337,7 +329,6 @@ namespace ConsoleStore
                     // Sets a condition for if the user wants to continue browsing or not
                     Console.Write("\tWould you like to keep browsing [y/n] ?: ");
                     string option_c1 = Console.ReadLine();
-
                     if (option_c1 == input)
                         goto L1;
                     else if (option_c1 != input)
@@ -476,8 +467,6 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 5:
-                    // Ask user to input the quantity they wish to purchase
-                    // Add item to cartList
                     Console.Write("\tPlease select the quantity you wish to purchase: ");
                     int pcgQuantity4 = int.Parse(Console.ReadLine());
                     Console.WriteLine($"\tYou have selected: {pcgQuantity4} items of this product");
@@ -705,8 +694,6 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 4:
-                    // Ask user to input the quantity they wish to purchase
-                    // Add item to cartList
                     Console.Write("\tPlease select the quantity you wish to purchase: ");
                     int psgQuantity3 = int.Parse(Console.ReadLine());
                     Console.WriteLine($"\tYou have selected: {psgQuantity3} items of this product");
@@ -752,8 +739,6 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 5:
-                    // Ask user to input the quantity they wish to purchase
-                    // Add item to cartList
                     Console.Write("\tPlease select the quantity you wish to purchase: ");
                     int psgQuantity4 = int.Parse(Console.ReadLine());
                     Console.WriteLine($"\tYou have selected: {psgQuantity4} items of this product");
