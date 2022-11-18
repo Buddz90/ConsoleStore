@@ -251,7 +251,7 @@ namespace ConsoleStore
 
         public static void Cart()
         {
-            Console.WriteLine("\tWelcome to your Cart\n\n");
+            Console.WriteLine("\tWelcome to your Cart History\n\n");
             Console.WriteLine("\tYour purchased Items: \n");            
             Object[] a = CartList.ToArray();
             foreach (object o in a)
@@ -825,7 +825,7 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 6:
-                    //Cart();
+                    Cart();
                     Console.ReadKey();
                     break;
                 case 7:
