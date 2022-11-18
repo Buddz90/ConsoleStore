@@ -31,13 +31,17 @@ namespace ConsoleStore
         public string UserName;
 
         public static void SignIn()
-        {
-
-            Console.WriteLine("\t*****************************************");
-            Console.WriteLine("                 Welcome to EB Games ");
-            Console.WriteLine("\t*****************************************");
+        {   
+            Console.Clear();
+            Console.WriteLine("\t===================================================================================");
+            Console.WriteLine("\t***********************************************************************************");
+            Console.ForegroundColor= ConsoleColor.Green;
+            Console.WriteLine("\t\t\t\t    <<<WELCOME TO H.B.I. STORE>>>");
+            Console.ResetColor();
+            Console.WriteLine("\t***********************************************************************************");
+            Console.WriteLine("\t===================================================================================\n\n");
             // ask user for name and save variable
-            Console.Write("\tPlease enter user name: ");
+            Console.Write("\t\t\t\t   Please enter user name: ");
             string UserName = Console.ReadLine();
             Accounts.UserAccount();
         }
@@ -55,36 +59,50 @@ namespace ConsoleStore
             // Display User Account Menu option and current account balance
             // Request user to select from the options
             Console.Clear();
-            Console.WriteLine("\tWelcome to EB Games Store " + "\tYour balance is $ " + balance);
-            Console.WriteLine("\n\tPlease select an option below: \n\n");
-            Console.WriteLine("\t[1] Top-up");
-            Console.WriteLine("\t[2] Browse Store");
-            Console.WriteLine("\t[3] View Cart History");
-            Console.WriteLine("\t[4] Log-out");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("\t===================================================================================");
+            Console.ResetColor();
+            Console.WriteLine("\t***********************************************************************************");
+            Console.WriteLine("\t\t     Welcome to EB Games Store " +  "\t\tYour balance is $ " + balance);
+            Console.WriteLine("\t***********************************************************************************");
+            Console.ForegroundColor= ConsoleColor.DarkYellow;
+            Console.WriteLine("\t===================================================================================\n\n");
+            Console.ResetColor();
+            Console.WriteLine("\t\t\t\t Please select an option below: \n\n");
+            Console.WriteLine("\t\t\t\t\t[1] Top-up");
+            Console.WriteLine("\t\t\t\t\t[2] Browse Store");
+            Console.WriteLine("\t\t\t\t\t[3] View Cart History");
+            Console.WriteLine("\t\t\t\t\t[4] Log-out\n");
+            Console.Write("\t\t\t\t\tSelected Option: ");
             string selectedOption = Console.ReadLine();
 
             // Use Switch statement to allow users to access other parts of the app
             switch (selectedOption)
             {
                 case "1":
-                    // Deposit Section
+                    // Deposit Section; Display Banner and current balance
                     Console.Clear();
-                    Console.WriteLine("\tWelcome to the Deposit Department" + "\tYour balance is " + balance + "\n\n\n");
-
-                    Console.WriteLine("\tPlease enter the amount you want to deposit");
-
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("\t===================================================================================");
+                    Console.WriteLine("\t***********************************************************************************");
+                    Console.ResetColor();
+                    Console.WriteLine("\t\t   WELCOME TO THE DEPOSIT DEPARTMENT" + "\t\tYOUR BALANCE IS $ " + balance );
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                    Console.WriteLine("\t***********************************************************************************");
+                    Console.WriteLine("\t===================================================================================\n\n");
+                    Console.ResetColor();
+                    Console.Write("\t\t  Please enter the amount you want to deposit: \n");
                     deposit = int.Parse(Console.ReadLine());
                     balance = balance + deposit;
-
-                    Console.WriteLine("\nYour balance is now: " + balance);
-                    Console.WriteLine("\tPress any key to go back");
+                    Console.WriteLine("\t\t\t\t    Your balance is now: " + balance + "\n");
+                    Console.Write("\t\t\t\t    Press any key to go back");
                     Console.ReadKey();
                     UserAccount();
 
                     break;
                 case "2":
-                    // Call Category Menu
-                    Store.CategoriesMenu();
+                    // Category Menu
+                    Store.CategoriesMenu(); 
                     break;
                 case "3":
                     // Cart History
@@ -106,8 +124,8 @@ namespace ConsoleStore
     class Store
     {
         // Array of products + price + description
-        public static string[] pcgName = { "NBA 2k23", "Item Name: The Witcher 3", "Item Name: Call of Duty", "Item Name: Forza Horizon 5", "\tItem Name: Ghost Recon" };
-        public static int[] pcgPrice = {"Price"}{ (160, 145, 190, 240, 134 };
+        public static string[] pcgName = { "NBA 2k23", "The Witcher 3", "Call of Duty", "Forza Horizon 5", "Ghost Recon" };
+        public static int[] pcgPrice = { 160, 145, 190, 240, 134 };
         public static int[] pcgQuantity = null;
         public static string[] pcgDes = { "NBA 2K23's gameplay has a bevy of new improvements " +
                                                     "to\n \tcomplementany skill set. Flex on the rim,\n \tfinesse   " +
@@ -122,7 +140,7 @@ namespace ConsoleStore
                                                     "In the series, the player is in charge of a fictional,\n \tnewly conceived squad" +
                                                     "of U.S. Army Special Forces soldiers from\n \tDelta Company, 1st Battalion, 5th Special Forces Group (5th SFG)\n" +
                                                     "\tstationed at Fort Bragg."};
-        public static string[] psgName = { "Item Name: Need for Speed", "Item Name: Warzone", "Item Name: Rugby 2K22", "Item Name: Grand Theft Auto", "\tItem Name: Madden NFL 23" };
+        public static string[] psgName = { "Need for Speed", "Warzone", "Rugby 2K22", "Grand Theft Auto", "Madden NFL 23" };
         public static int[] psgPrice = { 110, 60, 210, 160, 200 };
         public static int[] psgQuantity = null;
         public static string[] psgDes = { "Need for Speed is a racing video game franchise published\n \tby Electronic Arts" +
@@ -138,7 +156,7 @@ namespace ConsoleStore
                                                     " \tprogress through the story. Outside of the missions,\n \tplayers may freely roam the open world",
                                                     "All new to Ultimate Team for Madden NFL 23\n \tis the Field Pass. With the Field Pass providing\n \ta clear " +
                                                     "path to progression, you'll always know\n \twhat you need to do next"};
-        public static string[] xbgName = { "Item Name: Halo", "Item Name: Apex Legends", "Item Name: Fortnite", "Item Name: Friday Night Fights: Round 3", "\tItem Name: Sim World" };
+        public static string[] xbgName = { "Halo", "Apex Legends", "Fortnite", "Friday Night Fights: Round 3", "Sim World" };
         public static int[] xbgPrice = { 80, 95, 200, 240, 50 };
         public static int[] xbgQuantity = null;
         public static string[] xbgDes = { "Halo is set in the twenty-sixth century, with the\n \tplayer assuming the role of the Master Chief," +
@@ -151,14 +169,14 @@ namespace ConsoleStore
                                                     "to be the\n \tlast one standing. It is a fast-paced, action-packed game,\n \tnot unlike The Hunger Games," +
                                                     "where strategic thinking is a must\n \tin order to survive. There are an estimated 125 million players\n \ton Fortnite.",
                                                     "Round 3 is divided into three major sections: play mode,\n \twhere you fight as famous boxing greats against the" +
-                                                    "computer\n \tor another player; ESPN Classic mode, where vintage battles—Robinson/LaMotta,\n \tAli/Frazier, etc. —are reenacted; " +
-                                                    "and career mode, where you fight\n \tyour way to trophies and divisional dominance.",
-                                                    "Train Sim World® is an immersive First-Person Simulator that\n \tuses real-world data to bring " +
+                                                    "computer\n \tor another player; ESPN Classic mode, where vintage\n \tbattles—Robinson/LaMotta,Ali/Frazier, etc. —are reenacted;\n " +
+                                                    "\tand career mode, where you fight\n \tyour way to trophies and divisional dominance.",
+                                                    "Train Sim World®\n \tis an immersive First-Person Simulator that\n \tuses real-world data to bring " +
                                                     "to life the performance,\n \tsounds and power of real trains. Featuring complete in-cab interactivity," +
                                                     "\n \tfeel the detail as you sit in the driver's seat or\n \texplore on foot and bring classic trains roaring to life!"};
 
 
-
+        // 
         public static void CategoriesMenu()
         {
             // List of categories to display to user
@@ -168,23 +186,27 @@ namespace ConsoleStore
             CategoryList.Add("XBox Games");
 
 
-            //Display Banner Options for user to select.
+            // Display Banner & Options for user to select.
             Console.Clear();
-            Console.ForegroundColor= ConsoleColor.DarkMagenta;
-            Console.WriteLine("===================================================================================");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("              \tLIMITED EDTION GAMES   LIMITED STOCK BE QUICK!                     ");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("===================================================================================");
+           
+            Console.WriteLine("\t===================================================================================");
+            Console.WriteLine("\t***********************************************************************************");
+            Console.ForegroundColor = ConsoleColor.DarkMagenta;
+            Console.WriteLine("\t\t\t  LIMITED EDTION GAMES   LIMITED STOCK BE QUICK!                    ");
             Console.ResetColor();
+            Console.WriteLine("\t***********************************************************************************");
+            Console.WriteLine("\t===================================================================================");           
             Console.WriteLine("\n\n");
+            Console.WriteLine("\t\t\t\t\t[1]" + "    " + CategoryList[0]);
+            Console.WriteLine("\t\t\t\t\t[2]" + "    " + CategoryList[1]);
+            Console.WriteLine("\t\t\t\t\t[3]" + "    " + CategoryList[2]);
+            Console.WriteLine("\t\t\t\t\t[4]    View Cart History                                            ");
+            Console.WriteLine("\t\t\t\t\t[5]    Back\n");
+            Console.ForegroundColor= ConsoleColor.DarkMagenta;
+            Console.WriteLine("\t***********************************************************************************\n");
+            Console.ResetColor();
+            Console.Write("\t\t\t\t\tSelected Option: ");
 
-            Console.WriteLine("                           [1]" + "    " + CategoryList[0]);
-            Console.WriteLine("                           [2]" + "    " + CategoryList[1]);
-            Console.WriteLine("                           [3]" + "    " + CategoryList[2]);
-            Console.WriteLine("                           [4]    Cart                                             ");
-            Console.WriteLine("                           [5]    Back                                             ");
-            Console.WriteLine("                                                                                   ");
 
             int UserInput;
             UserInput = int.Parse(Console.ReadLine());
@@ -225,20 +247,23 @@ namespace ConsoleStore
 
             Console.ReadLine();
         }
-
+        // Displays the total list of items purchased
 
         public static void Cart()
         {
             Console.WriteLine("\tWelcome to your Cart\n\n");
-            Console.WriteLine("\tYour purchased Items: \n");
+            Console.WriteLine("\tYour purchased Items: \n");            
             Object[] a = CartList.ToArray();
             foreach (object o in a)
             {
 
-                Console.WriteLine("\t" + o);
+            Console.WriteLine("\t" + o);
 
             }Console.ReadLine();
+
+            Console.WriteLine();
         }
+        
         // Created a list to add items to
         public static List<Object> CartList = new List<Object>();
 
@@ -246,30 +271,34 @@ namespace ConsoleStore
         public static void Category1()
         {
         L1: Console.Clear();
-            Console.ForegroundColor= ConsoleColor.DarkYellow;
-            Console.WriteLine("===================================================================================");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("                                    PC Games                              ");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("===================================================================================");
+            Console.WriteLine("\t===================================================================================");
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.WriteLine("\t***********************************************************************************");
             Console.ResetColor();
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine($"\t[1]   {pcgName[0]}\t\t\t\t\t${pcgPrice[0]}\n");
-            Console.WriteLine($"\t{pcgDes[0]}\n");
-            Console.WriteLine($"\t[2]   {pcgName[1]}\t\t\t\t\t${pcgPrice[1]}\n");
-            Console.WriteLine($"\t{pcgDes[1]}\n");
-            Console.WriteLine($"\t[3]   {pcgName[2]}\t\t\t\t\t${pcgPrice[2]}\n");
-            Console.WriteLine($"\t{pcgDes[2]}\n");
-            Console.WriteLine($"\t[4]   {pcgName[3]}\t\t\t\t${pcgPrice[3]}\n");
-            Console.WriteLine($"\t{pcgDes[3]}\n");
-            Console.WriteLine($"\t[5]   {pcgName[4]}\t\t\t\t\t${pcgPrice[4]}\n");
-            Console.WriteLine($"\t{pcgDes[4]}\n");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                    \tChoose a product to add to Cart\n                              ");
-            Console.WriteLine("                    \tView Cart History           [6]                              ");
-            Console.WriteLine("                    \tBack                        [7]                              ");
-            Console.WriteLine("***********************************************************************************");
+            Console.WriteLine("\t                                  PC Games                              ");
+            Console.ForegroundColor= ConsoleColor.DarkYellow;
+            Console.WriteLine("\t***********************************************************************************");
+            Console.ResetColor();
+            Console.WriteLine("\t===================================================================================\n\n");           
+            Console.WriteLine($"\t[1]   {pcgName[0]}\t\t\t\t\t\t                 $ {pcgPrice[0]}\n");
+            Console.WriteLine($"\t\t\t{pcgDes[0]}\n");
+            Console.WriteLine($"\t[2]   {pcgName[1]}\t\t\t\t\t                 $ {pcgPrice[1]}\n");
+            Console.WriteLine($"\t\t\t{pcgDes[1]}\n");
+            Console.WriteLine($"\t[3]   {pcgName[2]}\t\t\t\t\t                 $ {pcgPrice[2]}\n");
+            Console.WriteLine($"\t\t\t{pcgDes[2]}\n");
+            Console.WriteLine($"\t[4]   {pcgName[3]}\t\t\t\t\t                 $ {pcgPrice[3]}\n");
+            Console.WriteLine($"\t\t\t{pcgDes[3]}\n");
+            Console.WriteLine($"\t[5]   {pcgName[4]}\t\t\t\t\t                 $ {pcgPrice[4]}\n");
+            Console.WriteLine($"\t\t\t{pcgDes[4]}\n");
+           
+            Console.WriteLine("                 \t\t    Choose a product to purchase\n                            ");
+            Console.WriteLine("                     \t\t\t[6] View Cart History                                        ");
+            Console.WriteLine("                     \t\t\t[7] Back                                                   \n");
+            Console.ForegroundColor= ConsoleColor.DarkYellow;
+            Console.WriteLine("\t***********************************************************************************\n");
+            Console.ResetColor();
+            Console.Write("\t\t\t\t\tSelected Option: ");
+
 
             // Catches user input
             int UserInput;
@@ -315,6 +344,7 @@ namespace ConsoleStore
                         CartList.Add(pcgPrice[0]);
                         CartList.Add(pcgQuantity);
                         Accounts.balance = Accounts.balance -= Subtotal;
+
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\tPayment Successful");
                         Console.ResetColor();
@@ -326,6 +356,7 @@ namespace ConsoleStore
                     // Sets a condition for if the user wants to continue browsing or not
                     Console.Write("\tWould you like to keep browsing [y/n] ?: ");
                     string option_c1 = Console.ReadLine();
+
                     if (option_c1 == input)
                         goto L1;
                     else if (option_c1 != input)
@@ -430,10 +461,10 @@ namespace ConsoleStore
                     if (Accounts.balance <= 0)
                     {
                         Console.Clear();
-                        Accounts.balance = Accounts.balance * 1;
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\tERROR!:Please deposit more funds.");
                         Console.ResetColor();
+                        Accounts.balance = Accounts.balance * 1;
                         Console.ReadKey();
                         Accounts.UserAccount();
 
@@ -464,6 +495,8 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 5:
+                    // Ask user to input the quantity they wish to purchase
+                    // Add item to cartList
                     Console.Write("\tPlease select the quantity you wish to purchase: ");
                     int pcgQuantity4 = int.Parse(Console.ReadLine());
                     Console.WriteLine($"\tYou have selected: {pcgQuantity4} items of this product");
@@ -521,33 +554,38 @@ namespace ConsoleStore
         }
 
         // ALL THE COMMENTS FOR CATEGORY 1 IS THE SAME FOR CATEGORY 2 & 3
+        // PlayStation Category
         public static void Category2()
         {
         L1: Console.Clear();
-            Console.ForegroundColor= ConsoleColor.Blue;
-            Console.WriteLine("===================================================================================");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("                                    PlayStation Games                              ");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("===================================================================================");
+            
+            Console.WriteLine("\t===================================================================================");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\t***********************************************************************************");
             Console.ResetColor();
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine($"\t[1]   {psgName[0]}\t\t\t\t\t\t{psgPrice[0]}\n");
+            Console.WriteLine("                                        PlayStation Games                              ");
+            Console.ForegroundColor= ConsoleColor.Blue;
+            Console.WriteLine("\t***********************************************************************************");
+            Console.ResetColor();
+            Console.WriteLine("\t===================================================================================");
+            Console.ResetColor();
+            Console.WriteLine($"\t[1]   {psgName[0]}\t\t\t\t\t\t\t$ {psgPrice[0]}\n");
             Console.WriteLine($"\t{psgDes[0]}                                                         \n");
-            Console.WriteLine($"\t[2]   {psgName[1]}\t\t\t\t\t\t{psgPrice[1]}\n");
+            Console.WriteLine($"\t[2]   {psgName[1]}\t\t\t\t\t\t\t\t$ {psgPrice[1]}\n");
             Console.WriteLine($"\t{psgDes[1]}                                                         \n");
-            Console.WriteLine($"\t[3]   {psgName[2]}\t\t\t\t\t\t{psgPrice[2]}\n");
+            Console.WriteLine($"\t[3]   {psgName[2]}\t\t\t\t\t\t\t$ {psgPrice[2]}\n");
             Console.WriteLine($"\t{psgDes[2]}                                                         \n");
-            Console.WriteLine($"\t[4]   {psgName[3]}\t\t\t\t\t{psgPrice[3]}\n");
+            Console.WriteLine($"\t[4]   {psgName[3]}\t\t\t\t\t\t\t$ {psgPrice[3]}\n");
             Console.WriteLine($"\t{psgDes[3]}                                                         \n");
-            Console.WriteLine($"\t[5]   {psgName[4]}\t\t\t\t\t{psgPrice[4]}\n");
-            Console.WriteLine($"\t{psgDes[4]}                                                         \n");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                    \tChoose a product to add to Cart                              ");
-            Console.WriteLine("                    \tView Cart                   [6]                              ");
-            Console.WriteLine("                    \tBack                        [7]                              ");
-            Console.WriteLine("***********************************************************************************");
+            Console.WriteLine($"\t[5]   {psgName[4]}\t\t\t\t\t\t\t$ {psgPrice[4]}\n");
+            Console.WriteLine($"\t{psgDes[4]}                                                         \n");           
+            Console.WriteLine("                    \t\tChoose a product to purchase\n                              ");
+            Console.WriteLine("                    \t\t[6] View Cart History                                       ");
+            Console.WriteLine("                    \t\t[7] Back\n                              ");
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine("\t***********************************************************************************");
+            Console.ResetColor();
+            Console.Write("\t\t\t\t\tSelected Option: ");
 
             int UserInput;
             UserInput = int.Parse(Console.ReadLine());
@@ -561,23 +599,12 @@ namespace ConsoleStore
                     Console.WriteLine($"\tYou have selected: {psgQuantity} items of this product");
                     Console.WriteLine("\tPress Enter to confirm");
 
+
                     int Subtotal = (psgQuantity) * (psgPrice[0]);
-
-                    if (Accounts.balance <= 0)
+                    if (Subtotal < Accounts.balance)
                     {
                         Console.Clear();
-                        Accounts.balance = Accounts.balance * 1;
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("\tERROR!:Please deposit more funds.");
-                        Console.ResetColor();
-                        Console.ReadKey();
-                        Accounts.UserAccount();
-
-                    }
-                    else if (Subtotal < Accounts.balance)
-                    {
-                        Console.Clear();
-
+                        
                         CartList.Add(psgName[0]);
                         CartList.Add(psgPrice[0]);
                         CartList.Add(psgQuantity);
@@ -588,6 +615,19 @@ namespace ConsoleStore
                         Console.ResetColor();
                         Console.WriteLine($"\tYour Remaining balance is: {Accounts.balance}");
                     }
+                    else if (Accounts.balance < 0)
+                    {
+                        Console.Clear();
+                        Accounts.balance = (Accounts.balance * 1);
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\tERROR!:Please deposit more funds.");
+                        Console.ResetColor();
+                        Console.ReadKey();
+                        Accounts.UserAccount();
+
+                    }
+
+
 
 
                     Console.ReadKey();
@@ -691,6 +731,8 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 4:
+                    // Ask user to input the quantity they wish to purchase
+                    // Add item to cartList
                     Console.Write("\tPlease select the quantity you wish to purchase: ");
                     int psgQuantity3 = int.Parse(Console.ReadLine());
                     Console.WriteLine($"\tYou have selected: {psgQuantity3} items of this product");
@@ -736,6 +778,8 @@ namespace ConsoleStore
                     Console.ReadKey();
                     break;
                 case 5:
+                    // Ask user to input the quantity they wish to purchase
+                    // Add item to cartList
                     Console.Write("\tPlease select the quantity you wish to purchase: ");
                     int psgQuantity4 = int.Parse(Console.ReadLine());
                     Console.WriteLine($"\tYou have selected: {psgQuantity4} items of this product");
@@ -798,30 +842,34 @@ namespace ConsoleStore
         public static void Category3()
         {
         L1: Console.Clear();
-            Console.ForegroundColor= ConsoleColor.Cyan;
-            Console.WriteLine("===================================================================================");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("                                    Xbox Games                              ");
-            Console.WriteLine("***********************************************************************************");
-            Console.WriteLine("===================================================================================\n\n");
+            
+            Console.WriteLine("\t===================================================================================");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\t***********************************************************************************");
             Console.ResetColor();
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine("                                                                                   ");
-            Console.WriteLine($"\t[1]   {xbgName[0]}\t\t\t\t\t\t\t{xbgPrice[0]}\n");
+            Console.WriteLine("                                        Xbox Games                              ");
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine("\t***********************************************************************************");
+            Console.ResetColor();   
+            Console.WriteLine("\t===================================================================================\n\n");
+            Console.ResetColor();          
+            Console.WriteLine($"\t[1]   {xbgName[0]}\t\t\t\t\t\t\t\t$ {xbgPrice[0]}\n");
             Console.WriteLine($"\t{xbgDes[0]}\n");
-            Console.WriteLine($"\t[2]   {xbgName[1]}\t\t\t\t\t\t{xbgPrice[1]}\n");
+            Console.WriteLine($"\t[2]   {xbgName[1]}\t\t\t\t\t\t\t$ {xbgPrice[1]}\n");
             Console.WriteLine($"\t{xbgDes[1]}\n");
-            Console.WriteLine($"\t[3]   {xbgName[2]}\t\t\t\t\t\t{xbgPrice[2]}\n");
+            Console.WriteLine($"\t[3]   {xbgName[2]}\t\t\t\t\t\t\t\t$ {xbgPrice[2]}\n");
             Console.WriteLine($"\t{xbgDes[2]}\n");
-            Console.WriteLine($"\t[4]   {xbgName[3]}\t\t\t\t{xbgPrice[3]}\n");
+            Console.WriteLine($"\t[4]   {xbgName[3]}\t\t\t\t\t$ {xbgPrice[3]}\n");
             Console.WriteLine($"\t{xbgDes[3]}\n");
-            Console.WriteLine($"\t[5]   {xbgName[4]}\t\t\t\t\t\t{xbgPrice[4]}\n");
+            Console.WriteLine($"\t[5]   {xbgName[4]}\t\t\t\t\t\t\t\t$ {xbgPrice[4]}\n");
             Console.WriteLine($"\t{xbgDes[4]}\n");            
-            Console.WriteLine("                    \tChoose a product to add to Cart                              ");
-            Console.WriteLine("                    \tView Cart                   [6]                              ");
-            Console.WriteLine("                    \tBack                        [7]                              ");
-            Console.WriteLine("***********************************************************************************");
-
+            Console.WriteLine("                    \t\tChoose a product to add to Cart\n                              ");
+            Console.WriteLine("                    \t\t[6] View Cart History                                                 ");
+            Console.WriteLine("                    \t\t[7] Back\n                              ");
+            Console.ForegroundColor= ConsoleColor.Cyan;
+            Console.WriteLine("\t***********************************************************************************\n");
+            Console.ResetColor();
+            Console.Write("\t\t\t\t\tSelected Option: ");
             int UserInput;
             UserInput = int.Parse(Console.ReadLine());
             string input = "y";
