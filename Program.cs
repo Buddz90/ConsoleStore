@@ -79,7 +79,6 @@ namespace ConsoleStore
                     Console.WriteLine("\nYour balance is now: " + balance);
                     Console.WriteLine("\tPress any key to go back");
                     Console.ReadKey();
-                    // Call UserAccount() 
                     UserAccount();
 
                     break;
@@ -96,7 +95,6 @@ namespace ConsoleStore
                     StoreFront.SignIn();
                     break;
                 default:
-                    // Error message
                     Console.WriteLine("No match found");
                     break;
             }
@@ -108,8 +106,8 @@ namespace ConsoleStore
     class Store
     {
         // Array of products + price + description
-        public static string[] pcgName = { "Item Name: NBA 2k23", "Item Name: The Witcher 3", "Item Name: Call of Duty", "Item Name: Forza Horizon 5", "\tItem Name: Ghost Recon" };
-        public static int[] pcgPrice = { 160, 145, 190, 240, 134 };
+        public static string[] pcgName = { "NBA 2k23", "Item Name: The Witcher 3", "Item Name: Call of Duty", "Item Name: Forza Horizon 5", "\tItem Name: Ghost Recon" };
+        public static int[] pcgPrice = {"Price"}{ (160, 145, 190, 240, 134 };
         public static int[] pcgQuantity = null;
         public static string[] pcgDes = { "NBA 2K23's gameplay has a bevy of new improvements " +
                                                     "to\n \tcomplementany skill set. Flex on the rim,\n \tfinesse   " +
@@ -317,7 +315,6 @@ namespace ConsoleStore
                         CartList.Add(pcgPrice[0]);
                         CartList.Add(pcgQuantity);
                         Accounts.balance = Accounts.balance -= Subtotal;
-
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine("\tPayment Successful");
                         Console.ResetColor();
